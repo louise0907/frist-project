@@ -1,0 +1,215 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Ecomwed
+build_property.RootNamespace = Ecomwed
+build_property.ProjectDir = C:\Users\louise\source\repos\asigment\Ecomwed\Ecomwed\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\louise\source\repos\asigment\Ecomwed\Ecomwed
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/categorieslist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cY2F0ZWdvcmllc2xpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/chart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cY2hhcnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/createcategoreis.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cY3JlYXRlY2F0ZWdvcmVpcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/customerdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cY3VzdG9tZXJkZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/custormerlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cY3VzdG9ybWVybGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/homepage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5caG9tZXBhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cbG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/productlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5ccHJvZHVjdGxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/sellerdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cc2VsbGVyZGV0YWlsLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/sellerlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cc2VsbGVybGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/admin/updatcategories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcYWRtaW5cdXBkYXRjYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/cartpage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXGNhcnRwYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/CATEGORIES.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXENBVEVHT1JJRVMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/frogetpassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXGZyb2dldHBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/homepage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXGhvbWVwYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXGxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXHByb2ZpbGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/custermor/transhtiondetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcY3VzdGVybW9yXHRyYW5zaHRpb25kZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Payment/paymenterrorpage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxwYXltZW50ZXJyb3JwYWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Payment/paymentsucersspage.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFxwYXltZW50c3VjZXJzc3BhZ2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Payment/trasnstionhistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGF5bWVudFx0cmFzbnN0aW9uaGlzdG9yeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/ChangePassword1.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXENoYW5nZVBhc3N3b3JkMS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/createproduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXGNyZWF0ZXByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXERhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/enteropt.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXGVudGVyb3B0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/frogetpassword.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXGZyb2dldHBhc3N3b3JkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/invview.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXGludnZpZXcuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXGxvZ2luLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/payment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXHBheW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/productdetail.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXHByb2R1Y3RkZXRhaWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/productlist.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXHByb2R1Y3RsaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXFJlZ2lzdGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/sellproductchat.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXHNlbGxwcm9kdWN0Y2hhdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/SendOtp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXFNlbmRPdHAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/updataproduct.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXHVwZGF0YXByb2R1Y3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/seller/ValidateOtp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3Ncc2VsbGVyXFZhbGlkYXRlT3RwLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Shared/adminlayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGFkbWlubGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = b-zz7o8uchbg
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Shared/custerlayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXGN1c3RlcmxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-fcxqmtrovw
+
+[C:/Users/louise/source/repos/asigment/Ecomwed/Ecomwed/Views/Shared/sellerlayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXHNlbGxlcmxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-0cfg5j7jwn

@@ -1,0 +1,531 @@
+﻿@using Ecomwed.viewmodel
+@model customer_profile
+@{
+    ViewData["Title"] = "profile";
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = "custerlayout";
+}
+
+
+
+<!-- Preloader area end -->
+<!-- Mouse cursor area start here -->
+<div class="mouse-cursor cursor-outer"></div>
+<div class="mouse-cursor cursor-inner"></div>
+<!-- Mouse cursor area end here -->
+<!-- Page banner area start here -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <style>
+        .hidden {
+            display: none;
+        }
+
+        .visible {
+            display: block;
+        }
+
+        .button-container {
+            margin-bottom: 20px;
+        }
+
+            .button-container button {
+                margin-right: 10px;
+                padding: 10px 20px;
+                cursor: pointer;
+                color: white;
+                font-size: 20px;
+            }
+
+        .section-content {
+            display: none;
+        }
+
+            .section-content.active {
+                display: block;
+            }
+
+        #imagePreview {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+        fieldset.material {
+            border: none;
+            padding: 0;
+        }
+    </style>
+</head>
+<section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+    <div class="container">
+        <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Profile Page</h2>
+        <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+            <a href="index.html" class="primary-hover">
+                <i class="fa-solid fa-house me-1"></i> Home <i class="fa-regular text-white fa-angle-right"></i>
+            </a>
+            <span>profile</span>
+        </div>
+    </div>
+</section>
+<!-- Page banner area end here -->
+<!-- Checkout area start here -->
+<section class="checkout-area pt-130 pb-130">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="checkout__item-left sub-bg">
+                    <div class="button-container">
+                        <button onclick="showSection('profile')">Profile</button>
+                        <button onclick="showSection('change-password')">Change Password</button>
+                        <button onclick="showSection('change-personal')">Change Personal</button>
+                    </div>
+                    <div id="profile-section" class="section-content active">
+                        <h3 class="mb-40">Profile</h3>
+                        <form id="countaddress">
+                            <label class="mb-10" for="fullname">Full Name *</label>
+                            <input class="mb-20" id="fullname" name="fullname" type="text" value="@Model.profile.fullname">
+
+                            <label class="mb-10" for="country">Country</label>
+                            <input class="mb-20" id="country" name="country" type="text" value="@Model.profile.Status" readonly>
+
+                            <label class="mb-10" for="address">Street Address *</label>
+                            <input placeholder="123 Main Street, Kuala Lumpur, 12345, Selangor" value="@Model.profile.address" name="address" class="mb-10" id="address" type="text">
+
+                            <label class="mb-10" for="state">State</label>
+                            <input class="mb-20" name="state" id="state" type="text" value="@Model.profile.state" readonly>
+                             
+                            <label class="mb-10" for="city">City *</label>
+                            <input class="mb-20" name="city" id="city" type="text" value="@Model.profile.city" readonly>
+
+                            <label class="mb-10" for="zipcode">ZIP Code *</label>
+                            <input class="mb-20" id="zipcode" name="zipcode" type="number" value="@Model.profile.zipcode" readonly>
+
+                            <div class="radio-btn">
+                                <span></span>
+                                <button type="submit" class="ml-10 fw-bold">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <form id="changePasswordForm">
+                        <div id="change-password-section" class="section-content">
+                            <h3 class="mb-40">Change Password</h3>
+                            <label class="mb-10" for="current-password">Current Password *</label>
+                            <input class="mb-20" id="oldPassword" name="oldPassword" placeholder="Old Password" required type="password">
+                            <label class="mb-10" for="new-password">New Password *</label>
+                            <input class="mb-20" id="newPassword" name="newPassword" placeholder="New Password" required type="password">
+                            <label class="mb-10" for="confirm-password">Confirm New Password *</label>
+                            <input class="mb-20" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" required type="password">
+                            <div class="radio-btn">
+                                <span></span>
+                                <a class="ml-10 fw-bold" id="submitLink" href="#">Submit</a>
+                            </div>
+                        </div>
+                        <div id="responseMessage"></div>
+                    </form>
+                    <form id="changepersonalForm" action="~/custermor/Personal" enctype="multipart/form-data">
+                        <div id="change-personal-section" class="section-content">
+                            <h3 class="mb-40">Change Personal</h3>
+
+                            <div class="form-group" style="
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+">
+                                <span id="imagePreview" style="background-image: url('@(Model.profile.image == null ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg": "/image/" + Model.profile.image)');"></span>
+                                <div>
+                                    <fieldset class='material'>
+                                        <div>
+                                            <input type="file" name="file" onchange="previewImage(event)" />
+                                            <button>Select File</button>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+
+                            <label class="mb-10" for="username">User Name *</label>
+                            <input class="mb-20" id="username" type="text" value="@Model.customers.username" readonly>
+
+                            <label class="mb-10" for="email">Email Address *</label>
+                            <input class="mb-20" id="email" type="text" value="@Model.customers.email" readonly>
+
+                            <label class="mb-10" for="nric">NRIC</label>
+                            <input class="mb-20" id="nric" type="text" name="NRIC" value="@Model.profile.NRIC" readonly>
+                            <span id="erronric" style="color:red; display:none;"></span>
+
+                            <label class="mb-10" for="birthday">Birthday</label>
+                            <input class="mb-20" id="birthday" type="text" value="@Model.profile.birthday" readonly>
+
+                            <label class="mb-10" for="age">AGE</label>
+                            <input class="mb-20" id="age" type="text" value="@Model.profile.age" readonly>
+
+                            <label class="mb-10" for="gender">AGE</label>
+                            <input class="mb-20" id="genderInput" type="text" value="@Model.profile.gender" readonly>
+
+                            <label class="mb-10" for="phone">Phone *</label>
+                            <input class="mb-20" id="phonenumber" name="phonenumber" type="text" value="@Model.profile.phonenumber">
+
+                            <div class="radio-btn">
+                                <span></span>
+                                <a class="ml-10 fw-bold" id="submitLinkk" href="#">Submit</a>
+                            </div>
+
+                            <div id="responseMessage" class="mt-20"></div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function showSection(section) {
+        document.getElementById('profile-section').classList.remove('active');
+        document.getElementById('change-password-section').classList.remove('active');
+        document.getElementById('change-personal-section').classList.remove('active');
+
+        if (section === 'profile') {
+            document.getElementById('profile-section').classList.add('active');
+        } else if (section === 'change-password') {
+            document.getElementById('change-password-section').classList.add('active');
+        } else if (section === 'change-personal') {
+            document.getElementById('change-personal-section').classList.add('active');
+        }
+    }
+    
+        function previewImage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function () {
+                var dataURL = reader.result;
+                var span = document.getElementById('imagePreview');
+                span.style.backgroundImage = "url('" + dataURL + "')";
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+            $(document).ready(function () {
+        $('#submitLinkk').on('click', function (e) {
+            e.preventDefault();
+
+            var form = $('#changepersonalForm')[0];
+            var formData = new FormData(form);
+
+            $.ajax({
+                url: '@Url.Action("personal", "custermor")',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function (response) {
+                    $('#responseMessage').text(response.msg);
+                    if (response.check) {
+                        $('#responseMessage').css('color', 'green');
+                    } else {
+                        $('#responseMessage').css('color', 'red');
+                    }
+                },
+                error: function () {
+                    $('#responseMessage').text('An error occurred. Please try again.');
+                    $('#responseMessage').css('color', 'red');
+                }
+            });
+        });
+    
+    // $(document).ready(function () {
+    //     $('#submitLinkk').on('click', function (e) {
+    //         e.preventDefault();
+
+    //         var phonenumber = $('#phonenumber').val();
+    //         var 
+    //         $.ajax({
+    //             url: '@Url.Action("personal", "custermor")',
+    //             type: 'POST',
+    //             data: {
+    //                 phonenumber: phonenumber
+    //             },
+    //             success: function (response) {
+    //                 $('#responseMessage').text(response.msg);
+    //                 if (response.check) {
+    //                     $('#responseMessage').css('color', 'green');
+    //                 } else {
+    //                     $('#responseMessage').css('color', 'red');
+    //                 }
+    //             },
+    //             error: function () {
+    //                 $('#responseMessage').text('An error occurred. Please try again.');
+    //                 $('#responseMessage').css('color', 'red');
+    //             }
+    //         });
+    //     });
+
+        $('#submitLink').on('click', function (e) {
+            e.preventDefault();
+
+            var oldPassword = $('#oldPassword').val();
+            var newPassword = $('#newPassword').val();
+            var confirmPassword = $('#confirmPassword').val();
+
+            $.ajax({
+                url: '@Url.Action("ChangePassword", "custermor")',
+                type: 'POST',
+                data: {
+                    oldPassword: oldPassword,
+                    newPassword: newPassword,
+                    confirmPassword: confirmPassword
+                },
+                success: function (response) {
+                    $('#responseMessage').text(response.msg);
+                    if (response.check) {
+                        $('#responseMessage').css('color', 'green');
+                    } else {
+                        $('#responseMessage').css('color', 'red');
+                    }
+                },
+                error: function () {
+                    $('#responseMessage').text('An error occurred. Please try again.');
+                    $('#responseMessage').css('color', 'red');
+                }
+            });
+        });
+        $("#countaddress").submit(function (e) {
+            e.preventDefault(); // Prevent page reload
+
+            var fullname = $("#fullname").val().trim();
+            var address = $("#address").val().trim();
+            var city = $("#city").val().trim();
+            var state = $("#state").val().trim();
+            var zipcode = $("#zipcode").val().trim();
+
+            if (fullname === "" || address === "") {
+                toastr.error("Fields cannot be empty");
+                return;
+            }
+
+            $.ajax({
+                url: "/custermor/updateadress",
+                type: "POST",
+                data: $(this).serialize(),
+                success: function (response) {
+                    if (response.check) {
+                        toastr.success(response.msg);
+                    } else {
+                        toastr.error(response.msg);
+                    }
+                }
+            });
+        });
+
+        $("#address").on('input', function () {
+            var address = $(this).val();
+
+            var parts = address.split(',');
+            if (parts.length >= 4) {
+                var city = parts[1].trim();
+                var zipcode = parts[2].trim();
+                var state = parts[3].trim();
+
+                $('#city').val(city);
+                $('#zipcode').val(zipcode);
+                $('#state').val(state);
+            }
+        });
+    });
+
+
+    // $("#address").on('input', function () {
+    //     var address = $(this).val();
+
+    //     if (address.length > 5) { // Basic check to ensure address is somewhat valid
+    //         $.get(`https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=YOUR_API_KEY`, function (data) {
+    //             if (data.status === "OK") {
+    //                 var results = data.results[0];
+    //                 var postal = '';
+    //                 var city = '';
+    //                 var state = '';
+
+    //                 results.address_components.forEach(function (component) {
+    //                     if (component.types.includes('postal_code')) {
+    //                         postal = component.long_name;
+    //                     }
+    //                     if (component.types.includes('locality')) {
+    //                         city = component.long_name;
+    //                     }
+    //                     if (component.types.includes('administrative_area_level_1')) {
+    //                         state = component.long_name;
+    //                     }
+    //                 });
+
+    //                 $('#postal').val(postal);
+    //                 $('#city').val(city);
+    //                 $('#state').val(state);
+    //             }
+    //         });
+    //     }
+    // });
+
+
+</script>
+
+
+
+
+
+@*
+   <div id='settings' ontouchstart>
+        <input class='nav' name='nav' type='radio' @ViewBag.profilecheack>
+        <span class='nav'>Profile</span>
+        <input class='nav' name='nav' type='radio' @ViewBag.accountcheack>
+        <span class='nav'>Account</span>
+        <input class='nav' name='nav' type='radio'>
+        <span class='nav'>Privacy</span>
+        <input class='nav' name='nav' type='radio'>
+        <span class='nav'>Advanced</span>
+        <main class='content'>
+            <section id='profile'>
+                <form method="post" action="~/custermor/updateprofile" enctype="multipart/form-data">
+                    <ul>
+                        <li class='large padding avatar'>
+                            <span id="imagePreview" style="background-image: url('@(Model.profile.image == null ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg": "/image/" + Model.profile.image)');"></span>
+                            <div>
+                                <fieldset class='material'>
+                                    <div>
+                                        <input type="file" name="file" onchange="previewimage(event)" />
+                                         <button>Select File</button>
+                                  </div>
+                                </fieldset>
+                            </div>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='text' name="fullname" value='@Model.profile.fullname'>
+                                    <label>Name</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+
+                                    <input required type='text' name="NRIC" value="@Model.profile.NRIC">
+                                    <label>NRIC</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='text' name="phonenumber" value="@Model.profile.phonenumber">
+                                    <label>Phone Number</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input  type='text'>
+                                    <label>Website</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li class='large'>
+                            <fieldset>
+                                <div>
+                                    <p style="color:red;"> @ViewBag.profileErrorMsg</p>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li class='large padding'>
+                            <fieldset class='material-button center'>
+                                <div>
+                                    <input class='save' type='submit' value='Save'>
+                                </div>
+                            </fieldset>
+                        </li>
+
+                    </ul>
+                </form>
+            </section>
+            <section id='account'>
+                <form action="~/custermor/changepassword" method="post">
+                    <ul>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='text' name="customers.email" value="@Model.customers.email">
+                                    <label>Email</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='text' name="customers.username" value="@Model.customers.username">
+                                    <label>Username</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='password' name="customers.password" value="@Model.customers.password">
+                                    <label>Password</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li>
+                            <fieldset class='material'>
+                                <div>
+                                    <input required type='password' name="ConfirmPassword">
+                                    <label>Confirm Password</label>
+                                    <hr>
+                                </div>
+                            </fieldset>
+                        </li>
+
+                        <li class='large padding'>
+                            <fieldset class='material-button center'>
+                                <div>
+                                    <input class='save' type='submit' value='Save'>
+                                </div>
+                            </fieldset>
+                        </li>
+                        <li class="large padding">
+                            <fieldset>
+                                <div>
+                                    <p style="color:red;">@ViewBag.ErrorMsg</p>
+                                </div>
+                            </fieldset>
+                        </li>
+                    </ul>
+                </form>
+            </section>
+
+        </main>
+    </div>
+
+   <script>
+        function previewimage(event) {
+            var input = event.target;
+            var reader = new FileReader();
+            reader.onload = function () {
+                var dataURL = reader.result;
+                var span = document.getElementById('imagePreview');
+                span.style.backgroundImage = "url('" + dataURL + "')";
+            };
+            reader.readAsDataURL(input.files[0]);
+        }
+    </script>
+  *@

@@ -1,0 +1,176 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\views\\custermor\\cartpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\views\\custermor\\cartpage.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\views\\custermor\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\views\\custermor\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\ecomwed.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\ecomwed.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\views\\seller\\invview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\views\\seller\\invview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\views\\custermor\\frogetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\views\\custermor\\frogetpassword.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\controllers\\sellercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\controllers\\sellercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\controllers\\custermorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\controllers\\custermorcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|c:\\users\\louise\\source\\repos\\asigment\\ecomwed\\ecomwed\\views\\seller\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{EC087C09-9950-482F-BD25-23AF236B2B1B}|Ecomwed\\Ecomwed.csproj|solutionrelative:ecomwed\\views\\seller\\payment.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{c9c0ae26-aa77-11d2-b3f0-0000f87570ee}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Ecomwed",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Ecomwed.csproj",
+              "RelativeDocumentMoniker": "Ecomwed\\Ecomwed.csproj",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Ecomwed.csproj",
+              "RelativeToolTip": "Ecomwed\\Ecomwed.csproj",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2024-08-10T04:30:40.167Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\Register.cshtml",
+              "RelativeDocumentMoniker": "Ecomwed\\Views\\custermor\\Register.cshtml",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\Register.cshtml",
+              "RelativeToolTip": "Ecomwed\\Views\\custermor\\Register.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAIkAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-09T02:16:18.261Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\appsettings.json",
+              "RelativeDocumentMoniker": "Ecomwed\\appsettings.json",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\appsettings.json",
+              "RelativeToolTip": "Ecomwed\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-07-26T15:42:40.507Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "cartpage.cshtml",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\cartpage.cshtml",
+              "RelativeDocumentMoniker": "Ecomwed\\Views\\custermor\\cartpage.cshtml",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\cartpage.cshtml",
+              "RelativeToolTip": "Ecomwed\\Views\\custermor\\cartpage.cshtml",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAAAGoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T20:11:14.486Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "payment.cshtml",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\seller\\payment.cshtml",
+              "RelativeDocumentMoniker": "Ecomwed\\Views\\seller\\payment.cshtml",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\seller\\payment.cshtml",
+              "RelativeToolTip": "Ecomwed\\Views\\seller\\payment.cshtml",
+              "ViewState": "AQIAAFoAAAAAAAAAAIBJwGwAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T20:03:15.908Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "invview.cshtml",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\seller\\invview.cshtml",
+              "RelativeDocumentMoniker": "Ecomwed\\Views\\seller\\invview.cshtml",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\seller\\invview.cshtml",
+              "RelativeToolTip": "Ecomwed\\Views\\seller\\invview.cshtml",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAANcAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T20:03:10.974Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frogetpassword.cshtml",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\frogetpassword.cshtml",
+              "RelativeDocumentMoniker": "Ecomwed\\Views\\custermor\\frogetpassword.cshtml",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Views\\custermor\\frogetpassword.cshtml",
+              "RelativeToolTip": "Ecomwed\\Views\\custermor\\frogetpassword.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAIBJwBkAAABsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-07-18T07:05:57.864Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "sellerController.cs",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Controllers\\sellerController.cs",
+              "RelativeDocumentMoniker": "Ecomwed\\Controllers\\sellerController.cs",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Controllers\\sellerController.cs",
+              "RelativeToolTip": "Ecomwed\\Controllers\\sellerController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4CAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-18T07:05:35.257Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "custermorController.cs",
+              "DocumentMoniker": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Controllers\\custermorController.cs",
+              "RelativeDocumentMoniker": "Ecomwed\\Controllers\\custermorController.cs",
+              "ToolTip": "C:\\Users\\louise\\source\\repos\\asigment\\Ecomwed\\Ecomwed\\Controllers\\custermorController.cs",
+              "RelativeToolTip": "Ecomwed\\Controllers\\custermorController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAANQAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-07-16T08:30:25.568Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

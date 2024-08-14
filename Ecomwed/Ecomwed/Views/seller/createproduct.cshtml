@@ -1,0 +1,121 @@
+﻿@*  @model Ecomwed.Models.product.products  *@
+
+@using Ecomwed.viewmodel
+@model cate_pro
+@{
+    ViewData["Title"] = "createproduct";
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = "sellerlayout";
+}
+
+<head>
+    <style>
+
+       
+        #imagePreview {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+        fieldset.material {
+            border: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<h1>createproduct</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="createproduct" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+">
+                <span id="imagePreview" style="background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg');"></span>
+                <fieldset class='material'>
+                    <div>
+                        <input type="file" name="file" onchange="previewImage(event)" />
+                    </div>
+                </fieldset>
+            </div>
+
+            <div class="form-group">
+
+                <label asp-for="products.productname" class="control-label"></label>
+                <input asp-for="products.productname" class="form-control" />
+                <span asp-validation-for="products.productname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="products.description" class="control-label"></label>
+                <input asp-for="products.description" class="form-control" />
+                <span asp-validation-for="products.description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="products.normalprice" class="control-label"></label>
+                <input asp-for="products.normalprice" class="form-control" />
+                <span asp-validation-for="products.normalprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="products.discount" class="control-label"></label>
+                <input asp-for="products.discount" class="form-control" />
+                <span asp-validation-for="products.discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="products.stock" class="control-label"></label>
+                <input asp-for="products.stock" class="form-control" />
+                <span asp-validation-for="products.stock" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="@Model.categories" class="control-label"></label>
+                <select name="categoriesid" class="form-control">
+                    @foreach (var c in Model.categories)
+                    {
+
+                        <option value="@c.Id">@c.Categoryname</option>
+
+                    }
+                </select>
+                <span asp-validation-for="@Model.categories" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                @if (ViewBag.ErrorMsg != null)
+                {
+                    <p style="color:red;">@ViewBag.ErrorMsg</p>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="productlist">Back to List</a>
+</div>
+
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function () {
+            var dataURL = reader.result;
+            var span = document.getElementById('imagePreview');
+            span.style.backgroundImage = "url('" + dataURL + "')";
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>

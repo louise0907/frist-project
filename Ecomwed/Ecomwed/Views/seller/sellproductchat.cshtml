@@ -1,0 +1,65 @@
+﻿@using Newtonsoft.Json
+@using Ecomwed.viewmodel
+
+@model List<SalesDetailViewModel>
+
+
+@{
+    ViewData["Title"] = "sellproductchat";
+    Layout = "sellerlayout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+    window.onload = function () {
+        var chartData = @Html.Raw(JsonConvert.SerializeObject(Model.Select(s => new { y = s.TotalQuantitySold, label = s.ProductName })));
+
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            theme: "light2",
+            title:{
+                text: "Products Sold by Seller"
+            },
+            axisY: {
+                title: "Total Quantity Sold"
+            },
+            data: [{        
+                type: "column",  
+                showInLegend: true, 
+                legendMarkerColor: "grey",
+                legendText: "Products Sold",
+                dataPoints: chartData
+            }]
+        });
+        chart.render();
+    }
+    </script>
+</head>
+<body>
+    <div id="chartContainer" style="height: 300px; width: 100%;"></div>
+    <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+    
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Total Quantity Sold</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var sale in Model)
+                {
+                    <tr>
+                        <td>@sale.ProductName</td>
+                        <td>@sale.TotalQuantitySold</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+

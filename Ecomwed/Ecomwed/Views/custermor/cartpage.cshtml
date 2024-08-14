@@ -1,0 +1,284 @@
+﻿@using Ecomwed.viewmodel
+@model IEnumerable<cartproduct>
+
+@{
+    ViewData["Title"] = "cartpage";
+    Layout = null;
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = "custerlayout";
+}
+
+
+<!-- Preloader area end -->
+<!-- Mouse cursor area start here -->
+<div class="mouse-cursor cursor-outer"></div>
+<div class="mouse-cursor cursor-inner"></div>
+<!-- Mouse cursor area end here -->
+<!-- Page banner area start here -->
+<section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+    <div class="container">
+        <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Cart Page</h2>
+        <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+            <a href="index.html" class="primary-hover">
+                <i class="fa-solid fa-house me-1"></i> Home <i class="fa-regular text-white fa-angle-right"></i>
+            </a>
+            <span>Cart</span>
+        </div>
+    </div>
+</section>
+<!-- Page banner area end here -->
+<!-- cart page area start here -->
+
+<section class="cart-page pt-130 pb-130">
+    <div class="container">
+        <div class="shopping-cart radius-10 bor sub-bg">
+            <div class="column-labels py-3 px-4 d-flex justify-content-between align-items-center fw-bold text-white text-uppercase">
+                <label class="product-details">Product</label>
+                <label class="product-price">Price</label>
+                <label class="product-quantity">Quantity</label>
+                <label class="product-line-price">Total</label>
+                <label class="product-removal">Edit</label>
+            </div>
+            @foreach (var c in Model.Where(x => x.products.status == productstatus.Active))
+            {
+                <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center clearall " >
+                    <div class="product-details d-flex align-items-center">
+                        <img src="/image/@c.products.image" style="width:30px;" alt="image">
+                        <h4 class="ps-4 text-capitalize">@c.products.productname</h4>
+                    </div>
+                    <div class="product-price" id="price"> RM@(c.products.afterdiscountprice)</div>
+
+                    <div class="product-quantity">
+                        <input type="number" min="0" max="@c.products.stock" class="productQuantity" value="@c.cart.quantity" data-product-id="@c.cart.productsId" />
+                    </div>
+
+                    <div class="product-line-price totalprice"> total RM@(c.products.afterdiscountprice * c.cart.quantity)</div>
+                    <div class="product-removal">
+                        <a href="*" class="delone" data-getid="@c.cart.Id">
+                            <button class="remove-product">
+                                <i class="fa-solid fa-x heading-color"></i>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            }
+
+            @if (Model.Where(x => x.products.status != productstatus.Active).Count() > 0)
+            {
+                foreach (var c in Model.Where(x => x.products.status != productstatus.Active))
+                {
+                    <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center">
+                        <div class="product-details d-flex align-items-center">
+                            <img src="/image/@c.products.image" style="width:30px;" alt="image">
+                            <h4 class="ps-4 text-capitalize">@c.products.productname</h4>
+                        </div>
+                        <div class="product-price"> RM@(c.products.afterdiscountprice)</div>
+
+                        <div class="product-quantity">
+                            <input type="number">@c.cart.quantity
+                        </div>
+                        <div class="product-line-price">  RM@(c.products.afterdiscountprice * c.cart.quantity)</div>
+                        <div class="product-removal">
+                            <a href="~/custermor/deletetonecart?cartId=@c.cart.Id">
+                                <button class="remove-product">
+                                    <i class="fa-solid fa-x heading-color"></i>
+                                </button>
+                            </a>
+                        </div>
+
+                    </div>
+                }
+            }
+
+            <div class="totals">
+                <div class="totals-item theme-color float-end mt-20">
+                    <span class="fw-bold text-uppercase py-2"></span>
+                    </br>
+                    <div class="totals-value d-inline py-2 pe-2" id="subtotal">Subtotal:RM @ViewBag.subtotal.ToString("F2")</div>
+                    </br>
+                    <div class="totals-value d-inline py-2 pe-2" id="tax">Tax (8%):RM @ViewBag.tax.ToString("F2")</div>
+                    </br>
+                    <div class="totals-value d-inline py-2 pe-2" value="5" id="shipping">Shipping: RM5.00</div>
+                    </br>
+                    <div class="totals-value d-inline py-2 pe-2" id="grandtotal">Total:RM @ViewBag.grandtotal.ToString("F2")</div>
+                    </br>
+
+                    <div id="buttoncheckout">
+
+                    </div>
+                  
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- cart page area end here -->
+
+<script>
+    $(document).ready(function () {
+        chekouclear()
+        function chekouclear() {  //chekout if else
+            $.ajax({
+                url: "/custermor/chekouclear",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (cartcount) {
+
+                    if (cartcount != 0) {
+                        $('#buttoncheckout').empty()
+                        $('#buttoncheckout').append(`  <a href="/custermor/deleteactive" id="delall" class="btn-one mt-35"><span>Remove product</span></a>
+                            <a href="/payment/paymentcheckout" class="btn-one mt-35"><span>Checkout</span></a>`)
+
+                        $("#delall").click(function (e) {  // del all items
+                            e.preventDefault();
+                            var th = $('.clearall');
+
+                            Swal.fire({
+                                title: "Are you sure?",
+                                text: "You won't be able to revert this!",
+                                icon: "warning",
+                                showCancelButton: true,
+                                confirmButtonColor: "#3085d6",
+                                cancelButtonColor: "#d33",
+                                confirmButtonText: "Yes, delete it!"
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    $.ajax({
+                                        url: "/custermor/deleteactive",
+                                        type: "POST",
+                                        success: function (response) {
+                                            if (response.check === false) {
+                                                Swal.fire({
+                                                    icon: "error",
+                                                    title: "Oops...",
+                                                    text: response.msg
+                                                });
+                                            } else {
+                                                Swal.fire({
+                                                    title: "Deleted",
+                                                    text: response.msg,
+                                                    icon: "success"
+                                                });
+                                                $(".clearall").remove();
+                                                calcart();
+                                                chekouclear();
+                                            }
+                                        },
+                                        error: function () {
+                                            Swal.fire({
+                                                icon: "error",
+                                                title: "Oops...",
+                                                text: "Something went wrong!"
+                                            });
+                                        }
+                                    });
+                                }
+                            });
+                        });
+                    }
+                    else {
+                        $("#buttoncheckout").empty();
+                    }
+                }
+            })
+        }
+        function calcart() {  //method cal price
+            $.ajax({
+                url: "/custermor/calcart",
+                type: 'GET',
+                contentType: 'application/json',
+                success: function (response) {
+                    $('#subtotal').text('subtotal :RM' + response.subtotal.toFixed(2));
+                    $('#tax').text('tax :RM' + response.tax.toFixed(2));
+                    $('#grandtotal').text('Grand total :RM' + response.grandtotal.toFixed(2));
+                }
+            })
+        }
+
+        $('.productQuantity').on('input', function (e) {
+            e.preventDefault();
+            var quantity = $(this).val();
+            var productId = $(this).data('product-id');
+            var price = $('#price').data()
+            var shippingText = $("#shipping").text();
+            var shippingCost = parseFloat(shippingText.replace(/[^\d.-]/g, ''));
+
+            // Calculate the grand total
+            var grandtotal = subtotal + shippingCost;
+            var th = $(this)
+
+            $.ajax({
+                url: "/custermor/updatecartpage",
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    ProductId: productId,
+                    Quantity: quantity
+                }),
+                success: function (response) {
+                    if (response.check) {
+                        toastr.success(response.msg);
+                        th.parent().next(".totalprice").text('total :RM' + response.total.toFixed(2));
+                        calcart()
+                    } else {
+                        
+                        toastr.error(response.msg);
+                    }
+                },
+                error: function (xhr, status, error) {
+                    toastr.error('An error occurred: ' + error);
+                }
+            });
+        });
+        $(".delone").click(function (e) {  //del oneitem
+            e.preventDefault();
+            var getid = $(this).data('getid');
+            var th = $(this);
+
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, Delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        url: "/custermor/deletetonecart",
+                        type: "POST",
+                        data: { id: getid },
+                        success: function (response) {
+                            if (response.check == false) {
+                                Swal.fire({
+                                    icon: "error",
+                                    title: "Oops...",
+                                    text: response.msg
+                                });
+                            } else {
+                                Swal.fire({
+                                    title: "Deleted",
+                                    text: response.msg,
+                                    icon: "success"
+                                });
+                                th.parent().parent().remove();
+                                calcart()
+                                chekouclear()
+                            }
+                        },
+                        error: function () {
+                            Swal.fire({
+                                icon: "error",
+                                title: "Oops...",
+                                text: "Something went wrong!"
+                            });
+                        }
+                    });
+                }
+            });
+        });
+    });
+
+</script>
+

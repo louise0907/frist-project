@@ -1,0 +1,241 @@
+﻿@using Ecomwed.viewmodel
+@model inv
+@{
+    ViewData["Title"] = "sellerdilivery";
+    Layout = "sellerlayout";
+}
+
+
+
+
+<div class="nxl-content">
+    <!-- [ page-header ] start -->
+    <div class="page-header">
+        <div class="page-header-left d-flex align-items-center">
+            <div class="page-header-title">
+                <h5 class="m-b-10">Invoice</h5>
+            </div>
+            <ul class="breadcrumb">
+                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item">View</li>
+            </ul>
+        </div>
+        <div class="page-header-right ms-auto">
+            <div class="page-header-right-items">
+                <div class="d-flex d-md-none">
+                    <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                        <i class="feather-arrow-left me-2"></i>
+                        <span>Back</span>
+                    </a>
+                </div>
+                <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                </div>
+
+                <a href="invoice-create.html" class="btn btn-primary">
+                    <i class="feather-plus me-2"></i>
+                    <span>Create Invoice</span>
+                </a>
+            </div>
+        </div>
+        <div class="d-md-none d-flex align-items-center">
+            <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                <i class="feather-align-right fs-20"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- [ page-header ] end -->
+<!-- [ Main Content ] start -->
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card invoice-container">
+            <div class="card-header">
+                <div>
+                    <h2 class="fs-16 fw-700 text-truncate-1-line mb-0 mb-sm-1">Invoice Preview</h2>
+                    <div class="dropdown d-none d-sm-block">
+                    </div>
+                </div>
+                <div class="d-flex align-items-center justify-content-center">
+
+                    <a href="javascript:void(0)" class="d-flex me-1 printBTN">
+                        <div class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Print Invoice"><i class="feather feather-printer"></i></div>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex me-1 file-download">
+                        <div class="avatar-text avatar-md" data-bs-toggle="tooltip" data-bs-trigger="hover" title="Download Invoice"><i class="feather feather-download"></i></div>
+                    </a>
+
+                </div>
+            </div>
+            <div class="card-body p-0">
+                <div class="px-4 pt-4">
+                    <div class="d-sm-flex align-items-center justify-content-between">
+                        <div>
+                            <div class="fs-24 fw-bolder font-montserrat-alt text-uppercase">Duralux</div>
+                            <address class="text-muted">
+                                P.O. Box 18728,<br>
+                                DeLorean New York<br>
+                                VAT No: 2617 348 2752
+                            </address>
+
+                        </div>
+                        <div class="lh-lg pt-3 pt-sm-0">
+                            <h2 class="fs-4 fw-bold text-primary">Invoice</h2>
+                            <div>
+                                <span class="fw-bold text-dark">Invoice:</span>
+                                <span id="invoiceNumber" class="fw-bold text-primary">#NXL</span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-dark">Due Date:</span>
+                                <span id="dueDate" class="text-muted"></span>
+                            </div>
+                            <div>
+                                <span class="fw-bold text-dark">Issued Date:</span>
+                                <span id="issuedDate" class="text-muted">@Model.tanshhistory.time</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border-dashed">
+                <div class="px-4 py-sm-5">
+                    <div class="d-sm-flex gap-4 justify-content-center">
+                        <div class="text-sm-end">
+                            <h2 class="fs-16 fw-bold text-dark mb-3">Invoiced To:</h2>
+                            <address class="text-muted lh-lg">
+                                @Model.customers.profile.address
+                            </address>
+                        </div>
+                        <div class="border-end border-end-dashed border-gray-500 d-none d-sm-block"></div>
+                        <div class="mt-4 mt-sm-0">
+                            <h2 class="fs-16 fw-bold text-dark mb-3">Payment Details:</h2>
+                            <div class="text-muted lh-lg">
+                                <div>
+                                    <span class="text-muted">Total Due:</span>
+                                    <span class="fw-bold text-dark">@Model.tanshhistory.grandtotal</span>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Payout Status:</span>
+                                    <span class="fw-bold text-warning">@Model.tanshhistory.status</span>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Card Holder:</span>
+                                    <span class="fw-bold text-dark">@Model.customers.profile.fullname</span>
+                                </div>
+                                <div>
+                                    <span class="text-muted">Payment Method:</span>
+                                    <span class="fw-bold text-dark">Mastercard</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="border-dashed mb-0">
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+
+                                <th>Description</th>
+                                <th>Rate</th>
+                                <th>QTY</th>
+                                <th>Amount</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var c in Model.detail)
+                            {
+                                <tr>
+
+                                    <td>@c.products.productname</td>
+                                    <td>RM:@c.price</td>
+                                    <td>@c.QTY</td>
+                                    <td class="text-dark fw-semibold">RM:@((c.price * c.QTY).ToString("0.00"))</td>
+                                </tr>
+                            }
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Sub Total</td>
+                                <td class="fw-bold text-dark bg-gray-100">RM:@Model.tanshhistory.subtotal</td>
+                            </tr>
+
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Estimated Tax (8%)</td>
+                                <td class="fw-bold text-dark bg-gray-100">RM:@Model.tanshhistory.sst</td>
+                            </tr>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td class="fw-semibold text-dark bg-gray-100 text-lg-end">Grand Amount</td>
+                                <td class="fw-bolder text-dark bg-gray-100">RM:@Model.tanshhistory.grandtotal</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <hr class="border-dashed mt-0">
+                <div class="px-4">
+                    <div class="alert alert-dismissible p-4 mt-3 alert-soft-warning-message" role="alert">
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        <p class="mb-0">
+                            <strong>NOTES:</strong> All accounts are to be paid within 7 days from receipt of invoice. <br>
+                            To be paid by cheque or credit card or direct payment online. <br>
+                            If account is not paid within 7 days the credits details supplied as confirmation of work undertaken will be charged the agreed quoted fee noted above.
+                        </p>
+                    </div>
+                </div>
+                <div class="px-4 pt-4 d-sm-flex align-items-center justify-content-between">
+                    <div class="mb-5 mb-sm-0">
+                        <h6 class="fs-13 fw-bold mb-3">Tarm &amp; Condition :</h6>
+                        <ul class="list-unstyled lh-lg fs-12">
+                            <li># All accounts are to be paid within 7 days from receipt of invoice.</li>
+                            <li># To be paid by cheque or credit card or direct payment online.</li>
+                            <li># If account is not paid within 7 days the credits details supplied as confirmation.</li>
+                            <li># This is computer generated receipt and does not require physical signature.</li>
+                        </ul>
+                    </div>
+                    <div class="text-center">
+                        <img src="assets/images/general/signature.png" class="img-fluid wd-100" alt="image">
+                        <h6 class="fs-13 fw-bold mt-2">Account Manager</h6>
+                        <p class="fs-11 fw-semibold text-muted">26 MAY 2023, 10:35PM</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+    // Generate a random invoice number
+    function generateRandomInvoiceNumber() {
+        return 'NXL' + Math.floor(Math.random() * 1000000).toString();
+    }
+
+    // Calculate the due date
+    function calculateDueDate(issueDate, daysToAdd) {
+        const result = new Date(issueDate);
+        result.setDate(result.getDate() + daysToAdd);
+        return result.toISOString().split('T')[0];  // Format as YYYY-MM-DD
+    }
+
+    // Set the issued date and due date
+    function setDates() {
+        const issuedDateElement = document.getElementById('issuedDate');
+        const dueDateElement = document.getElementById('dueDate');
+        const invoiceNumberElement = document.getElementById('invoiceNumber');
+
+        const issuedDate = new Date();  // Replace with @Model.tanshhistory.time if using server-side rendering
+        issuedDateElement.textContent = issuedDate.toISOString().split('T')[0];  // Format as YYYY-MM-DD
+
+        const dueDate = calculateDueDate(issuedDate, 3);
+        dueDateElement.textContent = dueDate;
+
+        invoiceNumberElement.textContent = generateRandomInvoiceNumber();
+    }
+
+    // Execute the function to set dates on page load
+    window.onload = setDates;
+</script>
+
+

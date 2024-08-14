@@ -1,0 +1,178 @@
+﻿@model Ecomwed.Models.product.categories
+@{
+    ViewData["Title"] = "createcategoreis";
+    Layout = "adminlayout";
+}
+
+
+
+
+<!-- [ page-header ] start -->
+<div class="page-header">
+    <div class="page-header-left d-flex align-items-center">
+        <div class="page-header-title">
+            <h5 class="m-b-10">Customers</h5>
+        </div>
+        <ul class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item">Create</li>
+        </ul>
+    </div>
+    <div class="page-header-right ms-auto">
+        <div class="page-header-right-items">
+            <div class="d-flex d-md-none">
+                <a href="javascript:void(0)" class="page-header-right-close-toggle">
+                    <i class="feather-arrow-left me-2"></i>
+                    <span>Back</span>
+                </a>
+            </div>
+            <div class="d-flex align-items-center gap-2 page-header-right-items-wrapper">
+                <a href="javascript:void(0);" class="btn btn-light-brand successAlertMessage">
+                    <i class="feather-layers me-2"></i>
+                    <span>Save as Draft</span>
+                </a>
+                <a href="javascript:void(0);" class="btn btn-primary successAlertMessage">
+                    <i class="feather-user-plus me-2"></i>
+                    <span>Create Customer</span>
+                </a>
+            </div>
+        </div>
+        <div class="d-md-none d-flex align-items-center">
+            <a href="javascript:void(0)" class="page-header-right-open-toggle">
+                <i class="feather-align-right fs-20"></i>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- [ page-header ] end -->
+<!-- [ Main Content ] start -->
+<div class="main-content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card border-top-0">
+                <div class="card-header p-0">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs flex-wrap w-100 text-center customers-nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item flex-fill border-top" role="presentation">
+                            <a href="javascript:void(0);" class="nav-link active" data-bs-toggle="tab" data-bs-target="#profileTab" role="tab">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <form method="post" action="~/admin/createcategoreis" enctype="multipart/form-data">
+                            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                            <li class='large padding avatar'>
+                                <span id="imagePreview" style="background-image: url('@(Model?.image == null ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg" : "/image/" + Model.image)');"></span>
+                                <fieldset class='material'>
+                                    <div>
+                                        <input type="file" name="file" onchange="previewimage(event)" />
+                                    </div>
+                                </fieldset>
+                            </li>
+                            <div class="form-group">
+
+                                <label asp-for="Categoryname" class="control-label"></label>
+                                <input asp-for="Categoryname" class="form-control" />
+                                <span asp-validation-for="Categoryname" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+
+                                <label asp-for="description" class="control-label"></label>
+                                <input asp-for="description" class="form-control" />
+                                <span asp-validation-for="description" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                @if (ViewBag.ErrorMsg != null)
+                                {
+                                    <p style="color:red;">@ViewBag.ErrorMsg</p>
+                                }
+                            </div>
+                            <div class="form-group">
+                                <input type="submit" value="Create" class="btn btn-primary" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script>
+    function previewimage(event) {
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function () {
+            var dataURL = reader.result;
+            var span = document.getElementById('imagePreview');
+            span.style.backgroundImage = "url('" + dataURL + "')";
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>
+
+
+
+
+@* <h1>createcategoreis</h1>
+                <hr />
+                <div class="row">
+                <div class="col-md-4">
+                @* <form asp-action="createcategoreis" enctype="multipart/form-data">
+                <form method="post" action="~/admin/createcategoreis" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <li class='large padding avatar'>
+                <span id="imagePreview" style="background-image: url('@(Model?.image == null ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg" : "/image/" + Model.image)');"></span>
+                <fieldset class='material'>
+                <div>
+                <input type="file" name="file" onchange="previewimage(event)" />
+                </div>
+                </fieldset>
+                </li>
+                <div class="form-group">
+
+                <label asp-for="Categoryname" class="control-label"></label>
+                <input asp-for="Categoryname" class="form-control" />
+                <span asp-validation-for="Categoryname" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                @if (ViewBag.ErrorMsg != null)
+                {
+                <p style="color:red;">@ViewBag.ErrorMsg</p>
+                }
+                </div>
+                <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                </form>
+                </div>
+                </div>
+
+                <div>
+                <a asp-action="categorieslist">Back to List</a>
+                </div>
+
+                <script>
+                function previewimage(event) {
+                var input = event.target;
+                var reader = new FileReader();
+                reader.onload = function () {
+                var dataURL = reader.result;
+                var span = document.getElementById('imagePreview');
+                span.style.backgroundImage = "url('" + dataURL + "')";
+                };
+                reader.readAsDataURL(input.files[0]);
+                }
+                </script> *@

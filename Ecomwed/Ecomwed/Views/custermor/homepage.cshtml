@@ -1,0 +1,321 @@
+﻿@* @using Ecomwed.Models.product *@
+@using Ecomwed.viewmodel
+@model categoriesview;
+@* @model IEnumerable<products> *@
+
+
+@{
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = "custerlayout";
+}
+
+<!-- Banner area start here -->
+<section class="banner-two">
+    <div class="banner-two__shape-left d-none d-lg-block wow bounceInLeft" data-wow-duration="1s"
+         data-wow-delay=".5s">
+        <img src="" alt="shape">
+    </div>
+    <div class="banner-two__shape-right d-none d-lg-block wow bounceInRight" data-wow-duration="1s"
+         data-wow-delay=".1s">
+        <img class="sway_Y__animation " src="" alt="shape">
+    </div>
+    <div class="swiper banner-two__slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="slide-bg" data-background="/newcus/images/banner/banner-two-image1.jpg"></div>
+                <div class="container">
+                    <div class="banner-two__content">
+                        <h4 data-animation="fadeInUp" data-delay="1s">
+                            <img src="/newcus/images/icon/fire.svg"
+                                 alt="icon"> GET <span class="primary-color">25% OFF</span> NOW
+                        </h4>
+                        <h1 data-animation="fadeInUp" data-delay="1.3s">
+                            Find everything <br>
+                            for <span class="primary-color">vaping</span>
+                        </h1>
+                        <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">
+                            Sell globally in minutes
+                            with localized currencies languages, and <br> experie in
+                            every
+                            market. only a variety of vaping
+                            products
+                        </p>
+                        <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
+                            <span class="mb-10">Starting Price</span>
+                            <h3>$99.00</h3>
+                        </div>
+                        <div class="btn-wrp mt-65">
+                            <a href="shop.html" class="btn-one" data-animation="fadeInUp"
+                               data-delay="1.8s">
+                                <span>
+                                    Shop
+                                    Now
+                                </span>
+                            </a>
+                            <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
+                               data-delay="1.9s"><span>View Details</span></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide-bg" data-background="/newcus/images/banner/banner-two-image2.jpg"></div>
+                <div class="container">
+                    <div class="banner-two__content">
+                        <h4 data-animation="fadeInUp" data-delay="1s">
+                            <img src="/newcus/images/icon/fire.svg"
+                                 alt="icon"> GET <span class="primary-color">25% OFF</span> NOW
+                        </h4>
+                        <h1 data-animation="fadeInUp" data-delay="1.3s">
+                            Find everything <br>
+                            for <span class="primary-color">vaping</span>
+                        </h1>
+                        <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">
+                            Sell globally in minutes
+                            with localized currencies languages, and <br> experie in
+                            every
+                            market. only a variety of vaping
+                            products
+                        </p>
+                        <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
+                            <span class="mb-10">Starting Price</span>
+                            <h3>$99.00</h3>
+                        </div>
+                        <div class="btn-wrp mt-65">
+                            <a href="shop.html" class="btn-one" data-animation="fadeInUp"
+                               data-delay="1.8s">
+                                <span>
+                                    Shop
+                                    Now
+                                </span>
+                            </a>
+                            <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
+                               data-delay="1.9s">
+                                <span>
+                                    View
+                                    Details
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="slide-bg" data-background="/newcus/images/banner/banner-two-image3.jpg"></div>
+                <div class="container">
+                    <div class="banner-two__content">
+                        <h4 data-animation="fadeInUp" data-delay="1s">
+                            <img src="/newcus/images/icon/fire.svg"
+                                 alt="icon"> GET <span class="primary-color">25% OFF</span> NOW
+                        </h4>
+                        <h1 data-animation="fadeInUp" data-delay="1.3s">
+                            Find everything <br>
+                            for <span class="primary-color">vaping</span>
+                        </h1>
+                        <p class="mt-40" data-animation="fadeInUp" data-delay="1.5s">
+                            Sell globally in minutes
+                            with localized currencies languages, and <br> experie in
+                            every
+                            market. only a variety of vaping
+                            products
+                        </p>
+                        <div class="banner-two__info mt-30" data-animation="fadeInUp" data-delay="1.7s">
+                            <span class="mb-10">Starting Price</span>
+                            <h3>$99.00</h3>
+                        </div>
+                        <div class="btn-wrp mt-65">
+                            <a href="shop.html" class="btn-one" data-animation="fadeInUp"
+                               data-delay="1.8s">
+                                <span>
+                                    Shop
+                                    Now
+                                </span>
+                            </a>
+                            <a class="btn-one-light ml-20" href="shop-single.html" data-animation="fadeInUp"
+                               data-delay="1.9s">
+                                <span>
+                                    View
+                                    Details
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="banner-two__arry-btn">
+        <button class="arry-prev mb-15 banner-two__arry-prev"><i class="fa-light fa-chevron-left"></i></button>
+        <button class="arry-next active banner-two__arry-next">
+            <i class="fa-light fa-chevron-right"></i>
+        </button>
+    </div>
+</section>
+<!-- Banner area end here -->
+<!-- Category area start here -->
+<section class="category-area category-two pb-130 pt-130">
+    <div class="container">
+        <div class="bor-bottom pb-130">
+            <div class="sub-title text-center mb-65 wow fadeInUp" data-wow-delay=".1s">
+                <h3>
+                    <a href="~/custermor/CATEGORIES">  <span class="title-icon"></span> our top categories <span class="title-icon"></span></a>
+                </h3>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Category area end here -->
+<!-- Product area start here -->
+
+<section class="product-area pt-130 pb-130 mt-130">
+    <div class="container">
+        <div class="product__wrp pb-30 mb-65 bor-bottom d-flex flex-wrap align-items-center justify-content-xl-between justify-content-center">
+            <div class="section-header d-flex align-items-center wow fadeInUp" data-wow-delay=".1s">
+                <span class="title-icon mr-10"></span>
+                <h2>latest arrival products</h2>
+            </div>
+            <ul class="nav nav-pills mt-4 mt-xl-0">
+                <li class="nav-item wow fadeInUp" data-wow-delay=".1s">
+                    <a href="#latest-item" data-bs-toggle="tab" class="nav-link px-4 active">
+                        latest item
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content">
+            <div id="latest-item" class="tab-pane fade show active">
+                <div class="row g-4">
+                    @foreach (var p in Model.products)
+                    {
+                        <div class="col-xxl-3 col-xl-4 col-md-6">
+                            <div class="product__item bor">
+                                <a href="#0" class="wishlist"><i class="fa-regular fa-heart"></i></a>
+                               @*  <a href="/custermor/Details" class="product__image pt-20 d-block"> *@
+                                <a asp-controller="custermor" asp-action="Details" asp-route-id="@p.Id" class="product__image pt-20 d-block">
+
+                                    <img class="font-image" src="/image/@p.image"
+                                         alt="image">
+                                    <img class="back-image" src="/image/@p.image"
+                                         alt="image">
+                                </a>
+                                <div class="product__content">
+                                    <h4 class="mb-15">
+                                        <a class="primary-hover" href="*">
+                                           @p.productname
+                                        </a>
+                                    </h4>
+                                    
+                                    <del>@p.normalprice</del><span class="primary-color ml-10">@p.afterdiscountprice</span>
+                                    <h4 class="mb-15">
+                                        <a class="primary-hover" href="shop-single.html">
+                                            Stock:@p.stock
+                                        </a>
+                                    </h4>
+
+                                </div>
+                                <a class="product__cart d-block bor-top add-to-cart" href="javascript:void(0);" data-product-id="@p.Id">
+                                    <i class="fa-regular fa-cart-shopping primary-color me-1"></i>
+                                    <span>
+                                        @if (p.stock > 0)
+                                        {
+                                            <span>add to cart</span>
+                                        }
+                                        else
+                                        {
+                                            <span>out of stock</span>
+                                        }
+                                        <p style="color:red;">@ViewBag.ErrorMsg</p>
+                                    </span>
+                                </a>
+
+                                <div id="cart">
+                                    <!-- Cart details here -->
+                                </div>
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Get now area end here -->
+<!-- Text slider area start here -->
+<div class="container">
+    <div class="bor-top pb-40"></div>
+</div>
+<div class="marquee-wrapper text-slider">
+    <div class="marquee-inner to-left">
+        <ul class="marqee-list d-flex">
+            <li class="marquee-item">
+                E-Cigarettes <img src="/newcus/images/icon/title-left.svg" alt="icon"> <span>Fruit</span>
+                <img src="/newcus/images/icon/title-left.svg" alt="icon">
+                Vape Juice <img src="/newcus/images/icon/title-left.svg" alt="icon"> <span>Vegatable</span>
+                <img src="/newcus/images/icon/title-left.svg" alt="icon">
+                Vape Pens <img src="/newcus/images/icon/title-left.svg" alt="icon"> <span>Seafood</span>
+                <img src="/newcus/images/icon/title-left.svg" alt="icon">
+                E-Cigarettes <img src="/newcus/images/icon/title-left.svg" alt="icon"> <span>Meat</span>
+                <img src="/newcus/images/icon/title-left.svg" alt="icon">
+                Vape Juice <img src="/newcus/images/icon/title-left.svg" alt="icon"> <span>Other</span>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <div class="bor-top pb-65"></div>
+</div>
+<!-- Text slider area end here -->
+<script>
+    $(document).ready(function () {
+       $(function () {
+
+        $('.toggles button').click(function () {
+            var get_id = this.id;
+            var get_current = $('.posts .' + get_id);
+
+            $('.post').not(get_current).hide(500);
+            get_current.show(500);
+        });
+
+
+        $('#showall').click(function () {
+            $('.post').show(500);
+        });
+
+
+    });
+
+        $(".add-to-cart").click(function () {
+            var productId = $(this).data("product-id");
+
+            $.ajax({
+                url: '@Url.Action("addtocart", "custermor")',
+                type: 'POST',
+                data: { productsId: productId },
+                success: function (response) {
+                    if (response.check) {
+                        toastr.success(response.msg);
+                        // Optionally, update the cart section of the page
+                        $("#cart").load(location.href + " #cart");
+                    } else {
+                        if (response.msg === "User not logged in") {
+                            window.location.href = '@Url.Action("login", "custermor")';
+                        } else {
+                            toastr.error(response.msg);
+                        }
+                    }
+                },
+                error: function (xhr, status, error) {
+                    toastr.error("An error occurred while adding the product to the cart: " + error);
+                }
+            });
+        });
+    });
+
+</script>
+
+
+
+

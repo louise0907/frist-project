@@ -1,0 +1,134 @@
+﻿@model Ecomwed.Models.product.products
+
+@{
+    ViewData["Title"] = "updataproduct";
+    Layout = "sellerlayout";
+}
+
+<head>
+    <style>
+
+
+        #imagePreview {
+            width: 200px;
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            margin-bottom: 10px;
+        }
+
+        fieldset.material {
+            border: none;
+            padding: 0;
+        }
+    </style>
+</head>
+
+<h4>products</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="updataproduct" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <div class="form-group" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+">
+                    <span id="imagePreview" style="background-image: url('@(Model?.image == null ? "https://s3-us-west-2.amazonaws.com/s.cdpn.io/345377/selca-square.jpg" : "/image/" + Model.image)');"></span>
+                    <fieldset class='material'>
+                        <div>
+                            <input type="file" name="file" onchange="previewimage(event)" />
+                            @*  <button>Select File</button> *@
+                        </div>
+                    </fieldset>
+
+                
+                @* <label asp-for="image" class="control-label"></label>
+                <input asp-for="image" class="form-control" />
+                <span asp-validation-for="image" class="text-danger"></span> *@
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="productname" class="control-label"></label>
+                <input asp-for="productname" class="form-control" />
+                <span asp-validation-for="productname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+             
+                <label asp-for="description" class="control-label"></label>
+                <input asp-for="description" class="form-control" />
+                <span asp-validation-for="description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+               
+                <label asp-for="normalprice" class="control-label"></label>
+                <input asp-for="normalprice" class="form-control" />
+                <span asp-validation-for="normalprice" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="discount" class="control-label"></label>
+                <input asp-for="discount" class="form-control" />
+                <span asp-validation-for="discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <p>RM @Model.afterdiscountprice </p>
+            </div>
+            <div class="form-group">
+                
+                <label asp-for="stock" class="control-label"></label>
+                <input asp-for="stock" class="form-control" />
+                <span asp-validation-for="stock" class="text-danger"></span>
+            </div>
+      
+            <div class="form-group">
+          
+                <label asp-for="status" class="control-label"></label>
+                <select name="status" class="form-control">
+                    <option value="@Model.status" selected disabled>@Model.status</option>
+                   
+
+                    @if (Model.status != productstatus.SellerDelete && Model.status != productstatus.AdminDelete && Model.status != productstatus.PendingReview)
+                    {
+                        <option value="@productstatus.Active">Active</option>
+                        <option value="@productstatus.Inactive">Inactive</option>
+                    }
+                    else
+                    {
+                        <option value="@productstatus.SellerDelete">SellerDelete</option>
+                    }
+                </select>
+                <span asp-validation-for="status" class="text-danger"></span>
+            </div>
+             <div class="form-group" >
+                @if (!string.IsNullOrEmpty(ViewBag.ErrorMsg))
+                {
+                    <p style="color:red;">@ViewBag.ErrorMsg</p>
+                }
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="productlist">Back to List</a>
+</div>
+
+<script>
+    function previewImage(event) {
+        var input = event.target;
+        var reader = new FileReader();
+        reader.onload = function () {
+            var dataURL = reader.result;
+            var span = document.getElementById('imagePreview');
+            span.style.backgroundImage = "url('" + dataURL + "')";
+        };
+        reader.readAsDataURL(input.files[0]);
+    }
+</script>

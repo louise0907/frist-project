@@ -1,0 +1,213 @@
+﻿@model IEnumerable<Ecomwed.viewmodel.DETAIL>
+
+@{
+    ViewData["Title"] = "transhtiondetail";
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = null;
+}
+
+<style>
+    body {
+        background-image: url('https://wallpapercave.com/wp/wp2249289.png');
+        background-size: cover; /* This makes the image cover the entire background */
+        background-repeat: no-repeat; /* This prevents the image from repeating */
+        background-attachment: fixed; /* This makes the background image fixed when scrolling */
+    }
+
+
+    #abcd {
+        color: white;
+        text-decoration: none;
+    }
+
+        #abcd:hover {
+            color: lawngreen;
+        }
+
+    #bcd {
+        list-style: none;
+        display: inline-block;
+        padding: 15px;
+    }
+
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        /* padding: 15px; */
+        background-color: #333;
+    }
+
+    .logo {
+        color: white;
+    }
+
+    .menu ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+    }
+
+        .menu ul li {
+            position: relative;
+        }
+
+            .menu ul li a {
+                color: black;
+                text-decoration: none;
+                padding: 15px;
+                display: block;
+            }
+
+            .menu ul li:hover > a {
+                background-color: #575757;
+            }
+
+        .menu ul ul {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #333;
+            display: none;
+        }
+
+            .menu ul ul li {
+                width: 150px;
+            }
+
+        .menu ul li:hover > ul {
+            display: block;
+            z-index: 1;
+        }
+
+    .search {
+        display: flex;
+        align-items: center;
+    }
+
+    .srch {
+        padding: 5px;
+    }
+
+    .btn {
+        padding: 5px 10px;
+        background-color: #575757;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+        .btn:hover {
+            background-color: #444;
+        }
+
+    table {
+        width: 100%;
+    }
+
+    table, th, td {
+        border-collapse: collapse;
+        border: 1px solid black
+    }
+
+    th {
+        font-size: 25px;
+    }
+
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&W</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">M&W</h2>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li id="bcd"><a id="abcd" href="~/custermor/homepage">HOME</a></li>
+                    <li id="bcd">
+                        <a id="abcd" href="/custermor/CATEGORIES">CATEGORIES</a>
+                        <ul class="dropdown">
+
+                            @foreach (var c in db.categories)
+                            {
+                                <li><a id="abcd" asp-controller="custermor" asp-action="CATEGORIES" asp-route-id="@c.Id">@c.Categoryname</a></li>
+                            }
+
+                        </ul>
+                    </li>
+                    @if (Context.Session.GetString("custormerid") == null)
+                    {
+
+                        <li id="bcd"><a id="abcd" href="~/custermor/login">LOG IN</a></li>
+                    }
+                    else
+                    {
+                        <li id="bcd"><a id="abcd" href="~/Payment/trasnstionhistory">TRANSACTION HISTORIES</a></li>
+                        <li id="bcd"><a id="abcd" href="/custermor/profile">PROFILE</a></li>
+                        <li id="bcd"><a id="abcd" href="/custermor/cartpage">CART</a></li>
+                        <li id="bcd"><a id="abcd" href="~/custermor/LogOut">LOG OUT</a></li>
+
+                    }
+                </ul>
+            </div>
+          
+        </div>
+    </div>
+</body>
+</html>
+
+<p>
+    <a href="~/custermor/homepage">back to home page</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.detail.QTY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.detail.price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.products.productname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.products.image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.detail.QTY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.detail.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.products.productname)
+            </td>
+            <td>
+                    <img width="150px" src="/image/@item.products.image"/>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Ecomwed.Models.custermor.tanshhistory>
+@{
+    ViewData["Title"] = "trasnstionhistory";
+    Cappdbcontext db = new Cappdbcontext();
+    Layout = "custerlayout";
+}
+
+
+
+<!-- Preloader area end -->
+<!-- Mouse cursor area start here -->
+<div class="mouse-cursor cursor-outer"></div>
+<div class="mouse-cursor cursor-inner"></div>
+<!-- Mouse cursor area end here -->
+<!-- Page banner area start here -->
+<section class="page-banner bg-image pt-130 pb-130" data-background="assets/images/banner/inner-banner.jpg">
+    <div class="container">
+        <h2 class="wow fadeInUp mb-15" data-wow-duration="1.1s" data-wow-delay=".1s">Transhistion history</h2>
+        <div class="breadcrumb-list wow fadeInUp" data-wow-duration="1.3s" data-wow-delay=".3s">
+            <a href="index.html" class="primary-hover">
+                <i class="fa-solid fa-house me-1"></i> Home <i class="fa-regular text-white fa-angle-right"></i>
+            </a>
+            <span>history</span>
+        </div>
+    </div>
+</section>
+<!-- Page banner area end here -->
+<!-- cart page area start here -->
+<section class="cart-page pt-130 pb-130">
+    <div class="container">
+        <div class="shopping-cart radius-10 bor sub-bg">
+            <div class="column-labels py-3 px-4 d-flex justify-content-between align-items-center fw-bold text-white text-uppercase">
+                <label class="product-details">subTotal</label>
+                <label class="product-details">sst</label>
+                <label class="product-details">GrandTotal</label>
+                <label class="product-details">TransactionDate</label>
+                <label class="product-details">Status</label>
+                <label></label>
+            </div>
+
+            @foreach (var item in Model)
+            {
+                <div class="product p-4 bor-top bor-bottom d-flex justify-content-between align-items-center">
+
+                    <label class="ps-4 text-capitalize">RM @item.subtotal</label>
+                    <label class="ps-4 text-capitalize">RM @item.sst</label>
+                    <label class="ps-4 text-capitalize">RM @item.grandtotal</label>
+                    <label class="ps-4 text-capitalize">@item.time</label>
+                    <label class="ps-4 text-capitalize">@item.status</label>
+                    <label class="ps-4 text-capitalize"><a href="" class="detail-link" data-id="@item.id">detail</a></label>
+                </div>
+                <div class="detail-content" id="detail-@item.id" style="display:none;">
+                    <table width="100%"class="detail-table">
+                       
+                       
+                    </table>
+                </div>
+            }
+            
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $('.detail-link').click(function (e) {
+            e.preventDefault();
+            var itemId = $(this).data('id');
+
+            var detailContainer = $('#detail-' + itemId);
+
+            if (detailContainer.is(':visible')) {
+                detailContainer.hide();
+            } else {
+
+                $.ajax({
+                    url: '/custermor/transhtiondetail',
+                    type: 'GET',
+                    data: { id: itemId },
+                    success: function (response) {
+                        if (response.success) {
+                            var product = response.data;
+                            console.log(product)
+                            detailContainer.find('table').empty()
+                            detailContainer.find('table').append(`
+                                                            <tr>
+                                                                <th>QTY</th>
+                                                                <th>Price</th>
+                                                                <th>Product Name</th>
+                                                                <th>Image</th>
+                                                            </tr>
+                                                    `)
+                            $.each(product, function (index, item) {
+                                detailContainer.find('table').append(`
+                                                        <tr>
+                                                                <td>${item.detail.qty}</td>
+                                                                <td>${item.detail.price}</td>
+                                                                <td>${item.products.productname}</td>
+                                                                <td><img width="150px" src="/image/${item.products.image}" /></td>
+                                                        </tr>
+                                                `)
+                            })
+
+                            detailContainer.show();
+                        } else {
+                            alert(response.message);
+                        }
+                    },
+                    error: function (xhr, status, error) {
+                        var errorMessage = xhr.status + ': ' + xhr.statusText;
+                        console.error('Error - ' + errorMessage);
+                        console.error(xhr.responseText);
+                        alert('Failed to retrieve details.');
+                    }
+                });
+
+            }
+        });
+    });
+</script>
+
+<style>
+    .detail-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #191919;
+        ;
+    }
+
+        .detail-table th, .detail-table td {
+            padding: 12px 15px;
+            border: 1px solid #414141;
+        }
+
+        .detail-table th {
+            background-color: #191919;
+            ;
+            color: #d2d2d2;
+            text-align: left;
+        }
+
+        .detail-table tbody tr {
+            transition: background-color 0.2s;
+        }
+
+            .detail-table tbody tr:hover {
+                background-color: #191919;
+                ;
+            }
+
+        .detail-table img {
+            max-width: 100px;
+            border-radius: 5px;
+        }
+</style>

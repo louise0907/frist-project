@@ -1,0 +1,68 @@
+﻿@model Ecomwed.Models.product.products
+
+@{
+    ViewData["Title"] = "productdetail";
+    Layout = "_sellerlayout";
+}
+
+<h1>productdetail</h1>
+
+<div>
+    <h4>products</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+        <dd class = "col-sm-10">
+            <img src="@Model.image" width="150"/>
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.productname)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.productname)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.normalprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.normalprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.discount)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.discount)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.afterdiscountprice)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.afterdiscountprice)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.stock)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.stock)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.status)
+        </dd>
+     
+    </dl>
+</div>
+<div>
+    <a asp-action="updataproduct" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="productlist">Back to List</a>
+</div>
